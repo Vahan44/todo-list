@@ -3,7 +3,7 @@ var Todo = () => {
     return (
         <ul>
         <li>js</li>
-        <li>react</li>
+        <li>urish ban</li>
           </ul>
     );
   }
