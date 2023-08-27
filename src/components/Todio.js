@@ -1,9 +1,15 @@
+const FirstRow = () => {
+  return (
+    <li>learn js</li>
+  )
+}
+
 
 const Todio = () => {
     return (
         <ul>
-        <li>learn js</li>
-        <li>learn urish ban</li>
+        <FirstRow/>
+        <FirstRow/>
           </ul>
     );
   }
