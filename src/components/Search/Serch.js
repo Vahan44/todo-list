@@ -1,3 +1,4 @@
+import "./Search.css"
 const Serch = ()=> {
     return <input type = "text" placeholder = "Type text for serch.."></input>
 }
