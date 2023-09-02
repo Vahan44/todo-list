@@ -1,3 +1,21 @@
 .row {
-    margin-left: 10px;
+  padding: 0px;
+}
+
+
+.rowDiv {
+  display: flex;
+  align-items: center;
+}
+
+
+.ul {
+  padding: 0%;
+}
+
+.buttons {
+  
+  position: absolute;
+
+  margin-left: 220px;
 }

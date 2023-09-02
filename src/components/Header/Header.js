@@ -1,10 +1,14 @@
 import "./header.css"
+import { Component } from "react"
 
-const Header = () => {
-    return (<>
-        <h1 className = "title">MY TODO LIST</h1>
-        </>
-    )
+class Header extends Component {
+    render(){
+        return (<>
+            <h1 className = "title">MY TODO LIST</h1>
+            </>
+        )
+    }
+    
 }
 
 export default Header

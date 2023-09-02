@@ -1,25 +1,32 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap);
 
 body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 margin: 0;
-display: flex;
-font-family: Roboto, sans-famly
+font-family: Roboto, sans-famly;
 }
 
 .container {
+    margin-top: 100px;
+    min-width: 350px;
     background: linear-gradient(
         200deg,
         rgb(240, 229, 209),
         rgb(175, 181, 151)
     );
-    padding: 30px;
-    position: absolute;
-    margin-left:42%;
-    margin-top: 10%;
-    border-radius: 20% 15% 3% 30%;
+    padding: 0px;
+    padding-bottom: 17PX;
+    border-radius: -20px;
+    box-shadow: 5px 10px gray;
 }
 
 .searchI {
     background: fixed;
     border-radius: 50%;
+}
+
+.form {
+padding-left: 23px;
 }

@@ -3,9 +3,9 @@ import Button from "../Button/Button"
 
 const CreatTasc = () => {
     return (
-        <div>
-            <input type="text" className="creat"></input>
-            <Button className = "crButton"  text = {<b fontSize = '105px'>+</b>
+        <div className="crDiv">
+            <input type="text" className="creat" placeholder = "Create a new task"></input>
+            <Button className = "crButton"  text = {<b className="b">+</b>
             }/>
         </div>
 

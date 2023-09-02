@@ -1,11 +1,27 @@
+.crDiv {
+    display: flex;
+    justify-content: center;
+}
+
+
 .creat {
+    width: 320px;
     background: fixed;
     border-left: 0px;    
     border-right: 0px;    
     border-top: 0px;    
+    outline: none;
+    
 }
 
 .crButton{
     background:fixed;
     border-radius: 5px;
+}
+
+.b {
+    font-size: 22px;
+    position: absolute;
+    margin-left: -20px;
+    margin-top: -15px;
 }

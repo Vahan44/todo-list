@@ -1,10 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import Todio from "./components/Todo/Todo"
-import Header from "./components/Header/Header"
-import Serch from "./components/Search/Serch"
+import Todo from "./components/Todo"
+import Header from "./components/Header"
+import Serch from "./components/Search"
 import Button from "./components/Button/Button"
-import CreatTasc from "./components/CreatTasc/CreateTask.js"
+import CreatTasc from "./components/CreatTasc"
 import "./index.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -13,10 +13,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(<div className = "container">
     <Header/>
-    <CreatTasc/>
-    <Todio/>
+    <form className='form'>
     <Serch/>
-    <Button text = {<p className="searchI">&#128269;</p>}    />
+    <Todo/>
+    <CreatTasc/>
+    </form>
 </div>);
 
 

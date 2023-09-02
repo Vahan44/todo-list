@@ -3,4 +3,21 @@
     border-left: 0px;    
     border-right: 0px;    
     border-top: 0px;   
+    outline: none;
+}
+
+.filterDiv {
+    min-width: auto;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+}
+
+.all, .done, .imporant {
+    background: fixed;
+    border-left: none;    
+    border-right: none;    
+    border-top: none;   
 }
