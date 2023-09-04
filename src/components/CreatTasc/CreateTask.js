@@ -1,5 +1,5 @@
 import "./CreateTask.css"
-import Button from "../Button/Button"
+import Button from "../Button"
 
 const CreatTasc = () => {
     return (

@@ -1,25 +1,35 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap);
 
 body {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 200vh;
+    background-image: url("https://images.freeimages.com/images/large-previews/3a8/white-wall-1571193.jpg");
+    background-position: -28px -120px ; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: 2800px;
+    
+    background-color: #F7F7F7;
+    display: flex; ;
+     justify-content: center;
 margin: 0;
 font-family: Roboto, sans-famly;
 }
 
 .container {
+    border-radius:  0 0 0; ;
     margin-top: 100px;
     min-width: 350px;
     background: linear-gradient(
-        200deg,
-        rgb(240, 229, 209),
-        rgb(175, 181, 151)
-    );
-    padding: 0px;
-    padding-bottom: 17PX;
-    border-radius: -20px;
-    box-shadow: 5px 10px gray;
+        320deg,
+        #FFEC9D,
+        #ebd583,
+        #F9E36E
+        );
+       
+    box-shadow: 15px 10px 15px rgb(205, 202, 202);
+        padding: 20px;
+    padding-bottom: 25px;
+    padding-left: 30px;
+    border-radius: 0 0 20px 0;
 }
 
 .searchI {
