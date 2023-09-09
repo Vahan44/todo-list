@@ -1,0 +1,15 @@
+.bt1 {
+    background-image: url("https://m.media-amazon.com/images/I/41NMjogCG4L._AC_UF350,350_QL80_.jpg");
+    background-position: 146px -36px ; /* Center the image */
+    background-size: 100px;
+    border-radius: 50%;
+    height: 35px;
+    padding: 0%;
+    width: 35px;
+    margin-left: 150px;
+    margin-top: -15px;
+    margin-bottom: -15px;
+    box-shadow: 7px 7px 10px rgb(125, 121, 121);
+
+}
+

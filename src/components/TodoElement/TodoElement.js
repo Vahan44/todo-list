@@ -22,6 +22,7 @@ class TodoElement extends Component {
   pStyle() {
     let col = {
       padding: "0",
+      fontWeight: this.state.isImportant ? 700 : 100,
       color: this.state.isDone ? "#919191" : this.state.isImportant ? "#d11e1e" : ''  ,
       textDecoration: this.state.isDone ? "line-through" : "none"
   }
@@ -37,7 +38,7 @@ class TodoElement extends Component {
       
         <div className="rowDiv">
           <span>
-          <p onClick={this.onDone} style={this.pStyle()}>{this.props.text}</p>
+          <p className = "text"onClick={this.onDone} style={this.pStyle()}>{this.props.text}</p>
           </span>
         
                <div className="buttons">

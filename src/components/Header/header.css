@@ -1,8 +1,7 @@
 .title {
     text-align: center;
-    position: relative;
     margin: 0;
     padding: 10px;
-    color:rgb(14, 90, 90)
-    
+    color:rgb(14, 90, 90);
+    position: unset;
 }

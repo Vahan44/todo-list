@@ -1,35 +1,39 @@
 @import url(https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;1,400&display=swap);
 
 body {
-    height: 200vh;
-    background-image: url("https://images.freeimages.com/images/large-previews/3a8/white-wall-1571193.jpg");
+    height: 100%;
+    width: 100%;
+    background-image: url("https://raw.githubusercontent.com/Gor737/Gor737.github.io/main/Pcitures/BackG/back1.jpg");
+    background-image: url("./back1.jpg");
     background-position: -28px -120px ; /* Center the image */
     background-repeat: no-repeat; /* Do not repeat the image */
-    background-size: 2800px;
+    background-size: 2200px;
     
     background-color: #F7F7F7;
     display: flex; ;
      justify-content: center;
 margin: 0;
-font-family: Roboto, sans-famly;
+font-family: cursive;
 }
 
 .container {
-    border-radius:  0 0 0; ;
+    border-radius: 10px;
     margin-top: 100px;
+    transform: rotate(-2deg);
     min-width: 350px;
     background: linear-gradient(
         320deg,
-        #FFEC9D,
-        #ebd583,
-        #F9E36E
+        #d9c98a,
+        #d9c88b,
+        #ddcc8f,
+        #ccc289
         );
        
     box-shadow: 15px 10px 15px rgb(205, 202, 202);
         padding: 20px;
     padding-bottom: 25px;
-    padding-left: 30px;
-    border-radius: 0 0 20px 0;
+    padding-left: 35px;
+    border-radius: 20px;
 }
 
 .searchI {
@@ -37,6 +41,6 @@ font-family: Roboto, sans-famly;
     border-radius: 50%;
 }
 
-.form {
+.form{
 padding-left: 23px;
 }

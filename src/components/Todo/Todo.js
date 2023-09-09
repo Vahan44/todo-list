@@ -14,12 +14,12 @@ class Todo extends Component {
 
 
   render() {
-    const { tasks } = this.props
+    const { items } = this.props
 
-    const result = tasks.reduce((jsx, el, i) => {
+    const result = items.reduce((jsx, el, i) => {
       return (<>
         {jsx}
-        <TodoElement text={el} important={i % 2 === 0 ? true : false} />
+        <TodoElement text={el.text} important={el.important} />
         </>
       )
     }, <></>)
