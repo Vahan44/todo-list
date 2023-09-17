@@ -1,29 +1,34 @@
 import "./Todo.css"
 import { Component } from "react"
-import TodoElement from "../TodoElement"
-
-
-
-
-
-
-
+import TodoElement from "./TodoElement"
 
 
 class Todo extends Component {
 
 
   render() {
+
     const { items } = this.props
 
-    const result = items.reduce((jsx, el, i) => {
+    const result = items.reduce((jsx, el, i, arr) => {
+      let arg = arr.findIndex((el) => el.id === arr[i].id)
       return (<>
         {jsx}
-        <TodoElement text={el.text} important={el.important} />
+        <TodoElement
+         text={el.text} 
+         arg = {arg} 
+         importantItem = {this.props.importantItem} 
+         id = {arr[i].id} 
+         important={el.important} 
+         deletItem = {this.props.deletItem} 
+         done = {el.isDone}
+         doneItem = {this.props.doneItem}
+         />
         </>
       )
     }, <></>)
-
+   
+    
 
     return (
       <ul className="ul">

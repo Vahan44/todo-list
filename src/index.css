@@ -23,13 +23,13 @@ font-family: cursive;
     min-width: 350px;
     background: linear-gradient(
         320deg,
-        #d9c98a,
-        #d9c88b,
+        #a0956a,
+        #cab97b,
         #ddcc8f,
-        #ccc289
+        #d1c686
         );
        
-    box-shadow: 15px 10px 15px rgb(205, 202, 202);
+    box-shadow: 15px 10px 15px rgb(163, 161, 161);
         padding: 20px;
     padding-bottom: 25px;
     padding-left: 35px;

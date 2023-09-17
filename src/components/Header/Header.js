@@ -24,6 +24,7 @@ class Header extends Component {
         // }
 // console.log(rec())
         return (<>
+        <p className="doneImp">done: {this.props.done}/important: {this.props.important}</p>
             <h1 className = "title">MY TODO LIST</h1>
             </>
         )

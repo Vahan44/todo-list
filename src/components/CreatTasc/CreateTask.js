@@ -13,7 +13,7 @@ inputValue = (event) => {
 
 
 enterEvent = () => {
-    document.addEventListener('keypress', (e) => {
+    document.addEventListener('keyup', (e) => {
         if (e.key === 'Enter') {
             this.creatItem()
         }
@@ -24,9 +24,11 @@ creatItem = () => {
     let flag = false
     flag = !(this.state.value.split('').every(ch => {
         return !"qwertyuiopasdfghjklzxcvbnm<>/?".split("").includes(ch.toLowerCase())
-    })) ? this.props.addItem(this.state.value) :  false
-    return !flag ? this.setState({value:""}) : 0
+    })) ? this.props.addItem(this.state.value) :  0
+    return !flag ? this.setState({value:""}) : null
 }
+
+
     render(){
         this.enterEvent()
         return (

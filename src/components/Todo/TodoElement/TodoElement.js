@@ -4,27 +4,30 @@ import { Component } from "react"
 
 
 class TodoElement extends Component {
-   
+  
   state = {
-    isDone: false,
-    isImportant: this.props.important,
-    del:false
+      del:false
   }
-  isDone = false
+
   onDone = () => {
-    this.setState({isDone : !this.state.isDone})
+    this.props.doneItem(this.props.id)
   }
 
   onImportant = () => {
-    this.setState({isImportant : !this.state.isImportant})
+    this.props.importantItem(this.props.id)
   }
 
-  pStyle() {
+  onDelete = () => {
+    this.props.deletItem(this.props.id)
+    this.setState({del: true})
+  }
+
+  pStyle = () => {
     let col = {
       padding: "0",
-      fontWeight: this.state.isImportant ? 700 : 100,
-      color: this.state.isDone ? "#919191" : this.state.isImportant ? "#d11e1e" : ''  ,
-      textDecoration: this.state.isDone ? "line-through" : "none"
+      fontWeight: (this.props.important && !this.props.done) ? 700 : 100,
+      color: this.props.done ? "#919191" : (this.props.important) ? "#d11e1e" : ''  ,
+      textDecoration: this.props.done ? "line-through" : "none"
   }
 
 
@@ -44,7 +47,7 @@ class TodoElement extends Component {
                <div className="buttons">
            <button className = "simb1" onClick={this.onDone} >&#10003;</button>
            <button className = "simb2" onClick = {this.onImportant}>&#33;</button>
-           <button className = "simb3" onClick = {()=>{this.setState({del: true})}}>&#128465;</button>
+           <button className = "simb3" onClick = {this.onDelete}>&#128465;</button>
           </div> 
              </div>
        </>
