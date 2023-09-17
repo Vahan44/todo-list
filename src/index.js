@@ -29,9 +29,11 @@ class App extends Component {
         ],
         noSearch: true,
         noIFilter: true,
+        noDFilter: true,
         searchedItems: [],
         newError: false,
-        searchImput: ""
+        searchImput: "",
+        filter: 'all'
     }
 
 
@@ -78,10 +80,15 @@ class App extends Component {
             const idx = items.findIndex((el) => el.id === id)
         
          let newItem = JSON.parse(JSON.stringify(items[idx]))
-         newItem.isDone = !newItem.isDone
+         newItem.done = !newItem.done
          
-            return {
+             return {
               items: [
+                ...items.slice(0, idx),
+                newItem,
+                ...items.slice(idx + 1)
+              ],
+              searchedItems: [
                 ...items.slice(0, idx),
                 newItem,
                 ...items.slice(idx + 1)
@@ -90,7 +97,7 @@ class App extends Component {
           })
     }
     search = (input) => {
-        if (input === "") {
+        if (input === "" && this.state.filter === "all") {
             this.setState({ noSearch: true })
         }
         else {this.setState({ noSearch: false })
@@ -98,7 +105,9 @@ class App extends Component {
         let result = this.state.items.filter(element => {
             return element.text.toLowerCase().indexOf(input.toLowerCase()) > -1// && this.state.noIFilter ? true : element.important
         })
-        this.setState({ searchedItems: result , searchImput: input})}
+
+        let filter = this.onFilter(result, this.state.filter)
+        this.setState({ searchedItems: filter , searchImput: input})}
     }
 
 
@@ -120,35 +129,14 @@ class App extends Component {
 
     quantity = () => {
         let res = this.state.items.reduce((acc, oj) => {
-            const {important, isDone} = oj
-            acc.done += isDone ? 1 : 0
-            acc.important += important && !isDone? 1 : 0
+            const {important, done} = oj
+            acc.done += done ? 1 : 0
+            acc.important += important && !done? 1 : 0
             return acc
         },{done:0, important: 0})
         return res
     }
 nothing = () => {}
-iFilter = () => {
-  this.setState((state) => {
-    let serched = state.searchedItems
-    if(serched.length === 0){
-       serched = state.items.filter(el => true)
-    }
-    const filtered = serched.filter (oj => {
-      return oj.important ;
-    })
-    return {searchedItems: filtered, noIFilter: false}
-  })
-  !this.state.noSearch ? this.search(this.state.searchImput) : this.nothing()
-
-}
-
-allFilter = () => {
-  this.setState({noIFilter: true})
-  !this.state.noSearch ? this.search(this.state.searchImput) : this.nothing()
-}
-
-
 
 
 
@@ -177,20 +165,25 @@ onFilter = (items, filterBtn) => {
 }
 
 onFilterChange = (filter) => {
-  this.setState({ filter })
+  let promise = new Promise((resolve, reject) => {
+    resolve(this.setState(() => {
+      return {filter}
+    }))
+  })
+  promise.then(() => this.search(this.state.searchImput))
+  
 }
 
-    render() {     
-      const items = (this.state.noIFilter && this.state.noSearch) ? this.state.items : this.state.searchedItems 
-
-      console.log((this.state.noIFilter && this.state.noSearch) ? 'items' : 'searchedItems' )
+    render = () => {     
+      const items = (this.state.noSearch) ? this.state.items : this.state.searchedItems 
+      // console.log((this.state.noSearch) ? 'items' : 'searchedItems' )
+     // console.log(this.state)
         return (
             <div className="container">
                 <Btn clas='bt1' />
                 <Header done = {this.quantity().done} important = {this.quantity().important}/>
                 <Serch func={this.search} 
-                 iFilter = {this.iFilter}
-                 allFilter = {this.allFilter}/>
+                 onFilterChange = {this.onFilterChange}/>
                 <Todo
                  items={items}
                  importantItem = {this.importantItem}

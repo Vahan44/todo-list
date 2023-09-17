@@ -17,16 +17,36 @@
     flex-direction: row;
 }
 
-.all, .done, .imporant {
+.all, .done, .important {
     opacity:0.5;
     background: fixed;
     border-left: none;    
     border-right: none;    
     border-top: none;  
     border-color: rgb(30, 117, 168); 
+    transition: 0,3s;
+
 }
 
-.all::content{
+
+
+
+.all:hover, .done:hover, .important:hover {
+    cursor: pointer;
+    font-weight: 700 ;
     opacity:5;
-    font-weight: 700
+    filter: drop-shadow(0px 0px 10px rgb(15, 15, 15));
+}
+
+
+.filter {
+    background: fixed;
+    border-left: none;    
+    border-right: none;    
+    border-top: none;  
+    border-color: rgb(30, 117, 168); 
+    transition: 0,3s;
+    font-weight: 700;
+    opacity: 5;
+    filter: drop-shadow(0px 0px 10px rgb(15, 15, 15));
 }

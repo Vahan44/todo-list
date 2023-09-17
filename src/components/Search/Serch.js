@@ -3,33 +3,38 @@ import { Component } from "react"
 class Serch extends Component {
     state = {
         onImportant: false,
+        all: true,
         doneClick: false,
         importantClick: false
     }
-    impFilter = () => {
-      this.setState((st)=>{
-        !st.importantClick ? this.props.iFilter() : this.props.allFilter();
-       return {importantClick: !st.importantClick}
-    })
-    }
-    DoneFilter = () => {
-        this.setState((st)=>{
-         return {doneClick: !st.doneClick}
-      })
-    }
-
 
     
 change = (event) => {
     this.props.func(event.target.value)
 }
+
+buttonClick = (event) => {
+    this.setState((state => {
+        switch(event.target.name) {
+            case 'all':
+              return {all: true, doneClick: false, importantClick: false};
+            case 'done':
+              return {all: false, doneClick: true, importantClick: false};
+            case 'important':
+              return {all: false, doneClick: false, importantClick: true};
+            default:
+              return {}
+          }
+    }))
+    this.props.onFilterChange(event.target.name)
+}
 render(){
     return (<div className="main">
     <input className = 'searchBar' onChange = {this.change} type = "text" placeholder = "Type text for serch.."></input>
     <div className="filterDiv">
-     <button key = "all" className="all">all</button>
-     <button key = "done" className="done" style = {{ fontWeight: this.state.doneClick ? 700 : 100, opacity:this.state.doneClick ? 5 : 0.5}} onClick={this.DoneFilter}>done</button>
-     <button key = "important" className="imporant" style = {{ fontWeight: this.state.importantClick ? 700 : 100, opacity:this.state.importantClick ? 5 : 0.5}}onClick={this.impFilter}>important</button>
+     <button key = "all" name = "all"className={this.state.all ? 'filter' : 'all'} onClick={this.buttonClick} >all</button>
+     <button key = "done" name = "done" className={this.state.doneClick ? 'filter' : 'done'} onClick={this.buttonClick} >done</button>
+     <button key = "important" name = "important" className={this.state.importantClick ? 'filter' : 'important'} onClick={this.buttonClick} >important</button>
     </div>
      
          </div>

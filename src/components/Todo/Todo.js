@@ -21,7 +21,7 @@ class Todo extends Component {
          id = {arr[i].id} 
          important={el.important} 
          deletItem = {this.props.deletItem} 
-         done = {el.isDone}
+         done = {el.done}
          doneItem = {this.props.doneItem}
          />
         </>
