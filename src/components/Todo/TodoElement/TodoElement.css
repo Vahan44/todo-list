@@ -1,4 +1,4 @@
-.simb1,.simb2,.simb3 {
+.simb1,.simb2,.simb3, .simb4 {
     background: fixed;
     padding: 5px;
     border-radius: 5px;
@@ -10,9 +10,12 @@
 }
 
 .buttons {
-  
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     position: absolute;
-  
+    right: 30px;
+    width: 150px;
     margin-left: 220px;
   }
 
@@ -20,11 +23,10 @@
 font-size: 15px;
 }
 
-.simb1:hover,.simb2:hover,.simb3:hover{
+.simb1:hover,.simb2:hover,.simb3:hover, .simb4:hover{
   cursor: pointer;
-  font-weight: 1700 ;
   opacity:5;
-  filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+  filter: drop-shadow(0px 10px 10px rgb(0, 0, 0));
 }
 
 .text:hover {
@@ -32,4 +34,15 @@ font-size: 15px;
   font-weight: 1700 ;
   opacity:5;
   filter: drop-shadow(0px 0px 10px rgb(0, 0, 0));
+}
+
+
+.editText {
+  height: 20px;
+  width: 45%;
+  outline: none;
+  border-radius: 10px;
+  background: fixed;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }

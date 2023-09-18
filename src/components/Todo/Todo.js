@@ -23,6 +23,7 @@ class Todo extends Component {
          deletItem = {this.props.deletItem} 
          done = {el.done}
          doneItem = {this.props.doneItem}
+         edit = {this.props.edit}
          />
         </>
       )

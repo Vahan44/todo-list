@@ -98,7 +98,7 @@ class App extends Component {
     }
     search = (input) => {
         if (input === "" && this.state.filter === "all") {
-            this.setState({ noSearch: true })
+            this.setState({ noSearch: true , searchImput: ""})
         }
         else {this.setState({ noSearch: false })
         
@@ -174,6 +174,28 @@ onFilterChange = (filter) => {
   
 }
 
+
+edit = (id ,changed) => {
+  this.setState(({items, searchedItems}) => {
+    const idx = items.findIndex((el) => el.id === id)
+        
+         let newItem = JSON.parse(JSON.stringify(items[idx]))
+         newItem.text = changed
+    return {
+      items: [
+        ...items.slice(0, idx),
+        newItem,
+        ...items.slice(idx + 1)
+      ],
+      searchedItems: [
+        ...items.slice(0, idx),
+        newItem,
+        ...items.slice(idx + 1)
+      ]
+    }
+  })
+}
+
     render = () => {     
       const items = (this.state.noSearch) ? this.state.items : this.state.searchedItems 
       // console.log((this.state.noSearch) ? 'items' : 'searchedItems' )
@@ -184,11 +206,13 @@ onFilterChange = (filter) => {
                 <Header done = {this.quantity().done} important = {this.quantity().important}/>
                 <Serch func={this.search} 
                  onFilterChange = {this.onFilterChange}/>
+                 
                 <Todo
                  items={items}
                  importantItem = {this.importantItem}
                  doneItem = {this.doneItem}
                  deletItem = {this.deletItem} 
+                 edit = {this.edit}
                  />
                 {() => this.state.newError ? <ErrorMessage/> : null}
                 <CreatTasc addItem={this.addItem} />
